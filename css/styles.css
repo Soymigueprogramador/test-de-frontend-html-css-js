@@ -17,18 +17,23 @@ body { /* Estilos para el body */
 h1 { /* Estilos para el titulo */
     color: #fff;
     text-align: center;
+    font-size: 2rem; 
+    margin-bottom: 20px;
 }
 
 /* Estilos para la grilla y las celdas */
 .grid {
     display: grid;
-    grid-template-columns: repeat(100, 10px);
+    grid-template-columns: repeat(auto-fill, minmax(8px, 1fr));
     gap: 1px;
+    max-width: 90vh;
+    max-height: 90vh;
+    padding: 10px;
 }
 
 .celdas {
-    width: 10px;
-    height: 10px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border: 1px solid #add;
     background-color: #fff;
 }
@@ -47,4 +52,21 @@ h1 { /* Estilos para el titulo */
     height: 20px;
     margin: 5px;
     cursor: pointer;
+}
+
+/* Meria querys para garantizar el tamaño responsive en dispositivos pequeños. */
+@media ( max-width: 600px ) {
+    .grid {
+        max-width: 100vh;
+        max-height: 100vh;
+        grid-template-columns: repeat(auto-fill, minmax(6px, 1fr));
+    }
+
+    .celdas {
+        border-width: 0.5px;
+    }
+
+    h1 {
+        font-size: 1.5px;
+    }
 }
