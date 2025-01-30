@@ -1,0 +1,50 @@
+* { /* Reseteo para la pagina */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body { /* Estilos para el body */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+}
+
+h1 { /* Estilos para el titulo */
+    color: #fff;
+    text-align: center;
+}
+
+/* Estilos para la grilla y las celdas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(100, 10px);
+    gap: 1px;
+}
+
+.celdas {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #add;
+    background-color: #fff;
+}
+
+/* Estilos para */ para que despues lo podamos usar el JavaScript
+.color-pintado {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+.color-pintado div {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
