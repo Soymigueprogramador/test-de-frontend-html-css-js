@@ -42,9 +42,8 @@ function dibujarCeldas(e, celdas) {
     }
 }
 
-// Función para abrir el selector de colores.
 function abrirColorPintado(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     colorPintado.style.display = 'block';
     colorPintado.style.left = `${e.pageX}px`;
     colorPintado.style.top = `${e.pageY}px`;

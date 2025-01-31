@@ -1,36 +1,39 @@
-* { /* Reseteo para la página */
+/* Reseteo general */
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body { /* Estilos para el body */
+body {
     height: 100vh;
-    margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     background-color: black;
 }
 
-h1 { /* Estilos para el título */
+/* Título */
+h1 {
     color: #fff;
     text-align: center;
-    font-size: 2rem; 
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-/* Estilos para la grilla y las celdas */
+/* Contenedor de la grilla */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
     gap: 1px;
-    max-width: 90vh;
-    max-height: 90vh;
+    max-width: 80vh;
+    max-height: 80vh;
     padding: 10px;
 }
 
+/* Celdas individuales */
 .celdas {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -38,35 +41,22 @@ h1 { /* Estilos para el título */
     background-color: #fff;
 }
 
-/* Estilos para el contenedor de colores que usará JavaScript */
+/* Selector de colores */
 #colorPintado {
-    display: none;
     position: absolute;
     padding: 5px;
     border: 1px solid black;
     background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
 }
+
 
 #colorPintado div {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 5px;
     cursor: pointer;
-}
-
-/* Media query para garantizar el tamaño responsive en dispositivos pequeños */
-@media (max-width: 600px) {
-    .grid {
-        max-width: 100vh;
-        max-height: 100vh;
-        grid-template-columns: repeat(auto-fill, minmax(6px, 1fr));
-    }
-
-    .celdas {
-        border-width: 0.5px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
+    border-radius: 3px;
 }
