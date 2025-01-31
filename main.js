@@ -2,13 +2,13 @@
 const colorPintado = document.getElementById('colorPintado');
 const grid = document.querySelector('.grid');
 
-// Dibujando las celdas.
+// Variables de control.
 let dibujando = false;
 let selectedColor = 'black';
 
 // Función para crear la grilla.
 function crearGrilla() {
-    const filas = Math.floor(window.innerHeight / 11);
+    const filas = Math.floor(window.innerHeight / 12);
     grid.style.gridTemplateRows = `repeat(${filas}, 10px)`;
     grid.style.gridTemplateColumns = `repeat(100, 10px)`; 
 
@@ -17,32 +17,32 @@ function crearGrilla() {
         const celdas = document.createElement('div');
         celdas.classList.add('celdas');
 
-        // Eventos para el mouse cuando lo arrastramos.
+        // Eventos para la interacción con el mouse.
         celdas.addEventListener('mousedown', (e) => pintarCeldas(e, celdas));
         celdas.addEventListener('mousemove', (e) => dibujarCeldas(e, celdas));
-        celdas.addEventListener('contextmenu', (e) => openColorPintado(e));
+        celdas.addEventListener('contextmenu', (e) => abrirColorPintado(e));
 
         grid.appendChild(celdas);
     }
 }
 
-// Función para pintar las celdas.
+// Función para pintar una celda.
 function pintarCeldas(e, celdas) {
     e.preventDefault();
-    if (e.button === 0) {
+    if (e.button === 0) { 
         dibujando = true;
         celdas.style.backgroundColor = celdas.style.backgroundColor === selectedColor ? 'white' : selectedColor;
     }
 }
 
-// Función para dibujar las celdas al arrastrar el mouse.
+// Función para dibujar celdas al arrastrar el mouse.
 function dibujarCeldas(e, celdas) {
     if (dibujando && e.buttons === 1) {
         celdas.style.backgroundColor = selectedColor;
     }
 }
 
-// Función para abrir el selector de color.
+// Función para abrir el selector de colores.
 function abrirColorPintado(e) {
     e.preventDefault();
     colorPintado.style.display = 'block';
@@ -50,14 +50,15 @@ function abrirColorPintado(e) {
     colorPintado.style.top = `${e.pageY}px`;
 }
 
-// Función para ocultar el selector de color.
-function cerrarCelectorColores() {
+// Función para cerrar el selector de colores.
+function cerrarSelectorColores() {
     colorPintado.style.display = 'none';
 }
 
 // Función para seleccionar un color.
 function seleccionarColor(e) {
     selectedColor = e.target.style.backgroundColor;
+    cerrarSelectorColores();
 }
 
 // Evento para detectar cuando se deja de dibujar.
@@ -66,11 +67,11 @@ document.addEventListener('mouseup', () => dibujando = false);
 // Evento para cerrar el selector de color al hacer clic fuera.
 document.addEventListener('click', (e) => {
     if (!colorPintado.contains(e.target)) {
-        cerrarCelectorColores();
+        cerrarSelectorColores();
     }
 });
 
-// Array de colores.
+// Creación de los botones de color.
 ['red', 'blue', 'green', 'yellow', 'black'].forEach(color => {
     const opcionesColor = document.createElement('div');
     opcionesColor.style.backgroundColor = color;

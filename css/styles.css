@@ -1,4 +1,4 @@
-* { /* Reseteo para la pagina */
+* { /* Reseteo para la página */
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -14,7 +14,7 @@ body { /* Estilos para el body */
     background-color: black;
 }
 
-h1 { /* Estilos para el titulo */
+h1 { /* Estilos para el título */
     color: #fff;
     text-align: center;
     font-size: 2rem; 
@@ -38,8 +38,8 @@ h1 { /* Estilos para el titulo */
     background-color: #fff;
 }
 
-/* Estilos para */ para que despues lo podamos usar el JavaScript
-.color-pintado {
+/* Estilos para el contenedor de colores que usará JavaScript */
+#colorPintado {
     display: none;
     position: absolute;
     padding: 5px;
@@ -47,15 +47,15 @@ h1 { /* Estilos para el titulo */
     background-color: #fff;
 }
 
-.color-pintado div {
+#colorPintado div {
     width: 20px;
     height: 20px;
     margin: 5px;
     cursor: pointer;
 }
 
-/* Meria querys para garantizar el tamaño responsive en dispositivos pequeños. */
-@media ( max-width: 600px ) {
+/* Media query para garantizar el tamaño responsive en dispositivos pequeños */
+@media (max-width: 600px) {
     .grid {
         max-width: 100vh;
         max-height: 100vh;
@@ -67,6 +67,6 @@ h1 { /* Estilos para el titulo */
     }
 
     h1 {
-        font-size: 1.5px;
+        font-size: 1.5rem;
     }
 }
